@@ -1,0 +1,30 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const jsx_runtime_1 = require("@revideo/2d/lib/jsx-runtime");
+const _2d_1 = require("@revideo/2d");
+const core_1 = require("@revideo/core");
+const theme_1 = require("../utils/theme");
+const Background_1 = require("../components/Background");
+const Card_1 = require("../components/Card");
+const Badge_1 = require("../components/Badge");
+const Vector_1 = require("../components/Vector");
+const Caption_1 = require("../components/Caption");
+const fade_1 = require("../animations/fade");
+const slide_1 = require("../animations/slide");
+const typing_1 = require("../animations/typing");
+exports.default = (0, _2d_1.makeScene2D)('scene21', function* (view) {
+    const cameraRef = (0, core_1.createRef)();
+    const titleRef = (0, core_1.createRef)();
+    const denseColRef = (0, core_1.createRef)();
+    const sparseColRef = (0, core_1.createRef)();
+    const dividerRef = (0, core_1.createRef)();
+    const pro1Ref = (0, core_1.createRef)();
+    const pro2Ref = (0, core_1.createRef)();
+    const con1Ref = (0, core_1.createRef)();
+    const con2Ref = (0, core_1.createRef)();
+    const captionRef = (0, core_1.createRef)();
+    view.add((0, jsx_runtime_1.jsx)(Background_1.Background, { children: (0, jsx_runtime_1.jsxs)(_2d_1.Rect, { ref: cameraRef, size: ['100%', '100%'], justifyContent: 'center', alignItems: 'center', children: [(0, jsx_runtime_1.jsx)(_2d_1.Rect, { ref: titleRef, y: -390, opacity: 0, children: (0, jsx_runtime_1.jsx)(_2d_1.Txt, { fontFamily: theme_1.THEME.fonts.main, fontSize: 48, fontWeight: 800, fill: theme_1.THEME.colors.text, text: 'Dense vs Sparse Retrieval' }) }), (0, jsx_runtime_1.jsxs)(_2d_1.Rect, { ref: denseColRef, layout: true, direction: 'column', gap: 20, x: -330, y: 10, alignItems: 'center', opacity: 0, children: [(0, jsx_runtime_1.jsx)(Badge_1.Badge, { text: 'DENSE RETRIEVAL', color: theme_1.THEME.colors.cyan }), (0, jsx_runtime_1.jsx)(Vector_1.Vector, { values: [0.82, -0.41, 0.09, 0.95], glow: true }), (0, jsx_runtime_1.jsxs)(Card_1.Card, { width: 320, height: 100, alignItems: 'center', justifyContent: 'center', children: [(0, jsx_runtime_1.jsx)(_2d_1.Txt, { fontFamily: theme_1.THEME.fonts.main, fontSize: 15, fill: theme_1.THEME.colors.success, fontWeight: 700, text: '✓ Understands paraphrases', marginBottom: 6 }), (0, jsx_runtime_1.jsx)(_2d_1.Txt, { fontFamily: theme_1.THEME.fonts.main, fontSize: 15, fill: theme_1.THEME.colors.success, fontWeight: 700, text: '✓ Language-agnostic' })] }), (0, jsx_runtime_1.jsxs)(Card_1.Card, { width: 320, height: 80, alignItems: 'center', justifyContent: 'center', children: [(0, jsx_runtime_1.jsx)(_2d_1.Txt, { fontFamily: theme_1.THEME.fonts.main, fontSize: 15, fill: theme_1.THEME.colors.error, fontWeight: 700, text: '✗ Expensive to index', marginBottom: 4 }), (0, jsx_runtime_1.jsx)(_2d_1.Txt, { fontFamily: theme_1.THEME.fonts.main, fontSize: 15, fill: theme_1.THEME.colors.error, fontWeight: 700, text: '✗ Can hallucinate matches' })] })] }), (0, jsx_runtime_1.jsx)(_2d_1.Rect, { ref: dividerRef, x: 0, y: 30, width: 2, height: 350, fill: 'rgba(148,163,184,0.2)', opacity: 0 }), (0, jsx_runtime_1.jsxs)(_2d_1.Rect, { ref: sparseColRef, layout: true, direction: 'column', gap: 20, x: 330, y: 10, alignItems: 'center', opacity: 0, children: [(0, jsx_runtime_1.jsx)(Badge_1.Badge, { text: 'SPARSE RETRIEVAL', color: theme_1.THEME.colors.warning }), (0, jsx_runtime_1.jsx)(Card_1.Card, { width: 320, height: 60, alignItems: 'center', justifyContent: 'center', children: (0, jsx_runtime_1.jsx)(_2d_1.Txt, { fontFamily: theme_1.THEME.fonts.mono, fontSize: 16, fill: theme_1.THEME.colors.text, text: 'BM25(q, d) = Σ IDF · TF' }) }), (0, jsx_runtime_1.jsxs)(Card_1.Card, { width: 320, height: 100, alignItems: 'center', justifyContent: 'center', children: [(0, jsx_runtime_1.jsx)(_2d_1.Txt, { fontFamily: theme_1.THEME.fonts.main, fontSize: 15, fill: theme_1.THEME.colors.success, fontWeight: 700, text: '✓ Fast & lightweight', marginBottom: 6 }), (0, jsx_runtime_1.jsx)(_2d_1.Txt, { fontFamily: theme_1.THEME.fonts.main, fontSize: 15, fill: theme_1.THEME.colors.success, fontWeight: 700, text: '✓ Exact term precision' })] }), (0, jsx_runtime_1.jsxs)(Card_1.Card, { width: 320, height: 80, alignItems: 'center', justifyContent: 'center', children: [(0, jsx_runtime_1.jsx)(_2d_1.Txt, { fontFamily: theme_1.THEME.fonts.main, fontSize: 15, fill: theme_1.THEME.colors.error, fontWeight: 700, text: '✗ Misses synonyms', marginBottom: 4 }), (0, jsx_runtime_1.jsx)(_2d_1.Txt, { fontFamily: theme_1.THEME.fonts.main, fontSize: 15, fill: theme_1.THEME.colors.error, fontWeight: 700, text: '✗ No semantic reasoning' })] })] }), (0, jsx_runtime_1.jsx)(Caption_1.Caption, { ref: captionRef, text: '', y: 400, opacity: 0 })] }) }));
+    const captionTxt = captionRef().children()[0];
+    yield* (0, core_1.all)(cameraRef().scale(1.04, 40), cameraRef().position.x(5, 40), (0, core_1.chain)((0, core_1.waitFor)(0.4), (0, fade_1.fadeIn)(titleRef(), 0.6), (0, core_1.waitFor)(0.3), (0, fade_1.fadeIn)(dividerRef(), 0.4), (0, core_1.all)((0, slide_1.slideInFrom)(denseColRef(), -60, 0, 0.7), (0, core_1.chain)((0, core_1.waitFor)(0.2), (0, slide_1.slideInFrom)(sparseColRef(), 60, 0, 0.7))), (0, core_1.waitFor)(0.5), (0, fade_1.fadeIn)(captionRef(), 0.5), (0, typing_1.typeText)(captionTxt, 'Dense retrieval captures meaning but is compute-heavy. Sparse retrieval is fast but keyword-bound. Use both together.', 2.8), (0, core_1.waitFor)(22)));
+});
+//# sourceMappingURL=scene21.js.map

@@ -1,0 +1,34 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const jsx_runtime_1 = require("@revideo/2d/lib/jsx-runtime");
+const _2d_1 = require("@revideo/2d");
+const core_1 = require("@revideo/core");
+const theme_1 = require("../utils/theme");
+const Background_1 = require("../components/Background");
+const Card_1 = require("../components/Card");
+const Badge_1 = require("../components/Badge");
+const AnimatedArrow_1 = require("../components/AnimatedArrow");
+const Caption_1 = require("../components/Caption");
+const pop_1 = require("../animations/pop");
+const fade_1 = require("../animations/fade");
+const draw_1 = require("../animations/draw");
+const typing_1 = require("../animations/typing");
+exports.default = (0, _2d_1.makeScene2D)('scene22', function* (view) {
+    const cameraRef = (0, core_1.createRef)();
+    const titleRef = (0, core_1.createRef)();
+    const queryCardRef = (0, core_1.createRef)();
+    const denseCardRef = (0, core_1.createRef)();
+    const sparseCardRef = (0, core_1.createRef)();
+    const rrfCardRef = (0, core_1.createRef)();
+    const resultCardRef = (0, core_1.createRef)();
+    const arrow1Ref = (0, core_1.createRef)();
+    const arrow2Ref = (0, core_1.createRef)();
+    const arrow3Ref = (0, core_1.createRef)();
+    const arrow4Ref = (0, core_1.createRef)();
+    const arrow5Ref = (0, core_1.createRef)();
+    const captionRef = (0, core_1.createRef)();
+    view.add((0, jsx_runtime_1.jsx)(Background_1.Background, { children: (0, jsx_runtime_1.jsxs)(_2d_1.Rect, { ref: cameraRef, size: ['100%', '100%'], justifyContent: 'center', alignItems: 'center', children: [(0, jsx_runtime_1.jsx)(_2d_1.Rect, { ref: titleRef, y: -390, opacity: 0, children: (0, jsx_runtime_1.jsx)(_2d_1.Txt, { fontFamily: theme_1.THEME.fonts.main, fontSize: 48, fontWeight: 800, fill: theme_1.THEME.colors.success, text: 'Hybrid Search' }) }), (0, jsx_runtime_1.jsxs)(Card_1.Card, { ref: queryCardRef, x: -620, y: 0, width: 180, height: 100, opacity: 0, alignItems: 'center', justifyContent: 'center', children: [(0, jsx_runtime_1.jsx)(Badge_1.Badge, { text: 'QUERY', color: theme_1.THEME.colors.primary, marginBottom: 6 }), (0, jsx_runtime_1.jsx)(_2d_1.Txt, { fontFamily: theme_1.THEME.fonts.main, fontSize: 16, fill: theme_1.THEME.colors.text, text: 'User Question', textAlign: 'center' })] }), (0, jsx_runtime_1.jsx)(AnimatedArrow_1.AnimatedArrow, { ref: arrow1Ref, points: [[-520, -40], [-330, -40]], glowColor: theme_1.THEME.colors.cyan }), (0, jsx_runtime_1.jsx)(AnimatedArrow_1.AnimatedArrow, { ref: arrow2Ref, points: [[-520, 40], [-330, 40]], glowColor: theme_1.THEME.colors.warning }), (0, jsx_runtime_1.jsxs)(Card_1.Card, { ref: denseCardRef, x: -160, y: -80, width: 240, height: 90, opacity: 0, glowColor: theme_1.THEME.colors.cyan, showGlow: true, alignItems: 'center', justifyContent: 'center', children: [(0, jsx_runtime_1.jsx)(Badge_1.Badge, { text: 'DENSE', color: theme_1.THEME.colors.cyan, marginBottom: 6 }), (0, jsx_runtime_1.jsx)(_2d_1.Txt, { fontFamily: theme_1.THEME.fonts.main, fontSize: 15, fill: theme_1.THEME.colors.textMuted, text: 'Top-K semantic docs' })] }), (0, jsx_runtime_1.jsxs)(Card_1.Card, { ref: sparseCardRef, x: -160, y: 80, width: 240, height: 90, opacity: 0, glowColor: theme_1.THEME.colors.warning, alignItems: 'center', justifyContent: 'center', children: [(0, jsx_runtime_1.jsx)(Badge_1.Badge, { text: 'SPARSE', color: theme_1.THEME.colors.warning, marginBottom: 6 }), (0, jsx_runtime_1.jsx)(_2d_1.Txt, { fontFamily: theme_1.THEME.fonts.main, fontSize: 15, fill: theme_1.THEME.colors.textMuted, text: 'Top-K keyword docs' })] }), (0, jsx_runtime_1.jsx)(AnimatedArrow_1.AnimatedArrow, { ref: arrow3Ref, points: [[-40, -80], [120, -20]], glowColor: theme_1.THEME.colors.success }), (0, jsx_runtime_1.jsx)(AnimatedArrow_1.AnimatedArrow, { ref: arrow4Ref, points: [[-40, 80], [120, 20]], glowColor: theme_1.THEME.colors.success }), (0, jsx_runtime_1.jsxs)(Card_1.Card, { ref: rrfCardRef, x: 280, y: 0, width: 240, height: 100, opacity: 0, glowColor: theme_1.THEME.colors.success, showGlow: true, alignItems: 'center', justifyContent: 'center', children: [(0, jsx_runtime_1.jsx)(Badge_1.Badge, { text: 'RRF FUSION', color: theme_1.THEME.colors.success, marginBottom: 8 }), (0, jsx_runtime_1.jsx)(_2d_1.Txt, { fontFamily: theme_1.THEME.fonts.main, fontSize: 15, fill: theme_1.THEME.colors.text, text: 'Score merge & re-rank', textAlign: 'center' })] }), (0, jsx_runtime_1.jsx)(AnimatedArrow_1.AnimatedArrow, { ref: arrow5Ref, points: [[-520, 40], [-330, 40]], glowColor: theme_1.THEME.colors.warning }), (0, jsx_runtime_1.jsxs)(Card_1.Card, { ref: resultCardRef, x: 540, y: 0, width: 220, height: 130, opacity: 0, glowColor: theme_1.THEME.colors.primary, showGlow: true, alignItems: 'center', justifyContent: 'center', children: [(0, jsx_runtime_1.jsx)(Badge_1.Badge, { text: 'TOP RESULTS', color: theme_1.THEME.colors.primary, marginBottom: 8 }), (0, jsx_runtime_1.jsx)(_2d_1.Txt, { fontFamily: theme_1.THEME.fonts.main, fontSize: 15, fill: theme_1.THEME.colors.success, text: 'High recall ✓', marginBottom: 4 }), (0, jsx_runtime_1.jsx)(_2d_1.Txt, { fontFamily: theme_1.THEME.fonts.main, fontSize: 15, fill: theme_1.THEME.colors.success, text: 'High precision ✓' })] }), (0, jsx_runtime_1.jsx)(Caption_1.Caption, { ref: captionRef, text: '', y: 350, opacity: 0 })] }) }));
+    const captionTxt = captionRef().children()[0];
+    yield* (0, core_1.all)(cameraRef().scale(1.04, 40), cameraRef().position.y(10, 40), (0, core_1.chain)((0, core_1.waitFor)(1), (0, fade_1.fadeIn)(titleRef(), 0.6), (0, core_1.waitFor)(2), (0, pop_1.popIn)(queryCardRef(), 0.6), (0, core_1.waitFor)(2), (0, core_1.all)((0, draw_1.drawIn)(arrow1Ref(), 0.5), (0, draw_1.drawIn)(arrow2Ref(), 0.5)), (0, core_1.waitFor)(2), (0, core_1.all)((0, pop_1.popIn)(denseCardRef(), 0.5), (0, pop_1.popIn)(sparseCardRef(), 0.5)), (0, core_1.waitFor)(2), (0, core_1.all)((0, draw_1.drawIn)(arrow3Ref(), 0.5), (0, draw_1.drawIn)(arrow4Ref(), 0.5)), (0, core_1.waitFor)(2), (0, pop_1.popIn)(rrfCardRef(), 0.6), (0, core_1.waitFor)(2), ((0, draw_1.drawIn)(arrow5Ref(), 0.5)), (0, core_1.waitFor)(2), (0, pop_1.popIn)(resultCardRef(), 0.6), (0, core_1.waitFor)(2), (0, pop_1.popIn)(resultCardRef(), 1.06), (0, core_1.waitFor)(2), (0, fade_1.fadeIn)(captionRef(), 0.5), (0, typing_1.typeText)(captionTxt, 'Hybrid search merges dense and sparse results using Reciprocal Rank Fusion for the best of both worlds.', 2.6), (0, core_1.waitFor)(22)));
+});
+//# sourceMappingURL=scene22.js.map

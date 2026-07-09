@@ -1,0 +1,30 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const jsx_runtime_1 = require("@revideo/2d/lib/jsx-runtime");
+const _2d_1 = require("@revideo/2d");
+const core_1 = require("@revideo/core");
+const theme_1 = require("../utils/theme");
+const Background_1 = require("../components/Background");
+const Card_1 = require("../components/Card");
+const Badge_1 = require("../components/Badge");
+const Caption_1 = require("../components/Caption");
+const pop_1 = require("../animations/pop");
+const fade_1 = require("../animations/fade");
+const typing_1 = require("../animations/typing");
+exports.default = (0, _2d_1.makeScene2D)('scene28', function* (view) {
+    const cameraRef = (0, core_1.createRef)();
+    const titleRef = (0, core_1.createRef)();
+    const app1Ref = (0, core_1.createRef)();
+    const app2Ref = (0, core_1.createRef)();
+    const app3Ref = (0, core_1.createRef)();
+    const app4Ref = (0, core_1.createRef)();
+    const app5Ref = (0, core_1.createRef)();
+    const app6Ref = (0, core_1.createRef)();
+    const captionRef = (0, core_1.createRef)();
+    view.add((0, jsx_runtime_1.jsx)(Background_1.Background, { children: (0, jsx_runtime_1.jsxs)(_2d_1.Rect, { ref: cameraRef, size: ['100%', '100%'], justifyContent: 'center', alignItems: 'center', children: [(0, jsx_runtime_1.jsx)(_2d_1.Rect, { ref: titleRef, y: -380, opacity: 0, children: (0, jsx_runtime_1.jsx)(_2d_1.Txt, { fontFamily: theme_1.THEME.fonts.main, fontSize: 48, fontWeight: 800, fill: theme_1.THEME.colors.primary, text: 'Real-world Applications' }) }), (0, jsx_runtime_1.jsxs)(_2d_1.Rect, { layout: true, direction: 'row', gap: 24, y: -10, wrap: 'wrap', width: 1100, justifyContent: 'center', children: [(0, jsx_runtime_1.jsxs)(Card_1.Card, { ref: app1Ref, width: 310, height: 160, opacity: 0, glowColor: theme_1.THEME.colors.primary, children: [(0, jsx_runtime_1.jsx)(Badge_1.Badge, { text: 'CUSTOMER SUPPORT', color: theme_1.THEME.colors.primary, marginBottom: 10 }), (0, jsx_runtime_1.jsx)(_2d_1.Txt, { fontFamily: theme_1.THEME.fonts.main, fontSize: 15, fill: theme_1.THEME.colors.textMuted, text: 'AI bots answer queries from support docs, FAQs, and knowledge bases.', textWrap: true, textAlign: 'center' })] }), (0, jsx_runtime_1.jsxs)(Card_1.Card, { ref: app2Ref, width: 310, height: 160, opacity: 0, glowColor: theme_1.THEME.colors.cyan, children: [(0, jsx_runtime_1.jsx)(Badge_1.Badge, { text: 'CODE ASSISTANT', color: theme_1.THEME.colors.cyan, marginBottom: 10 }), (0, jsx_runtime_1.jsx)(_2d_1.Txt, { fontFamily: theme_1.THEME.fonts.main, fontSize: 15, fill: theme_1.THEME.colors.textMuted, text: 'Retrieves relevant code snippets, docs, and API references in real time.', textWrap: true, textAlign: 'center' })] }), (0, jsx_runtime_1.jsxs)(Card_1.Card, { ref: app3Ref, width: 310, height: 160, opacity: 0, glowColor: theme_1.THEME.colors.success, children: [(0, jsx_runtime_1.jsx)(Badge_1.Badge, { text: 'LEGAL & COMPLIANCE', color: theme_1.THEME.colors.success, marginBottom: 10 }), (0, jsx_runtime_1.jsx)(_2d_1.Txt, { fontFamily: theme_1.THEME.fonts.main, fontSize: 15, fill: theme_1.THEME.colors.textMuted, text: 'Surfaces relevant clauses from contracts and regulations with citations.', textWrap: true, textAlign: 'center' })] }), (0, jsx_runtime_1.jsxs)(Card_1.Card, { ref: app4Ref, width: 310, height: 160, opacity: 0, glowColor: theme_1.THEME.colors.purple, children: [(0, jsx_runtime_1.jsx)(Badge_1.Badge, { text: 'HEALTHCARE', color: theme_1.THEME.colors.purple, marginBottom: 10 }), (0, jsx_runtime_1.jsx)(_2d_1.Txt, { fontFamily: theme_1.THEME.fonts.main, fontSize: 15, fill: theme_1.THEME.colors.textMuted, text: 'Answers clinical questions grounded in medical literature and guidelines.', textWrap: true, textAlign: 'center' })] }), (0, jsx_runtime_1.jsxs)(Card_1.Card, { ref: app5Ref, width: 310, height: 160, opacity: 0, glowColor: theme_1.THEME.colors.warning, children: [(0, jsx_runtime_1.jsx)(Badge_1.Badge, { text: 'ENTERPRISE SEARCH', color: theme_1.THEME.colors.warning, marginBottom: 10 }), (0, jsx_runtime_1.jsx)(_2d_1.Txt, { fontFamily: theme_1.THEME.fonts.main, fontSize: 15, fill: theme_1.THEME.colors.textMuted, text: 'Enables employees to search internal wikis, Slack, and emails semantically.', textWrap: true, textAlign: 'center' })] }), (0, jsx_runtime_1.jsxs)(Card_1.Card, { ref: app6Ref, width: 310, height: 160, opacity: 0, glowColor: theme_1.THEME.colors.error, children: [(0, jsx_runtime_1.jsx)(Badge_1.Badge, { text: 'FINANCIAL ANALYSIS', color: theme_1.THEME.colors.error, marginBottom: 10 }), (0, jsx_runtime_1.jsx)(_2d_1.Txt, { fontFamily: theme_1.THEME.fonts.main, fontSize: 15, fill: theme_1.THEME.colors.textMuted, text: 'Synthesizes earnings reports and news to answer analyst questions accurately.', textWrap: true, textAlign: 'center' })] })] }), (0, jsx_runtime_1.jsx)(Caption_1.Caption, { ref: captionRef, text: '', y: 380, opacity: 0 })] }) }));
+    const captionTxt = captionRef().children()[0];
+    yield* (0, core_1.all)(cameraRef().scale(1.04, 40), cameraRef().position.y(-5, 40), (0, core_1.chain)((0, core_1.waitFor)(1), (0, fade_1.fadeIn)(titleRef(), 0.6), (0, core_1.waitFor)(2), 
+    // Pop in cards with stagger
+    (0, core_1.all)((0, pop_1.popIn)(app1Ref(), 2), (0, core_1.chain)((0, core_1.waitFor)(6), (0, pop_1.popIn)(app2Ref(), 2)), (0, core_1.chain)((0, core_1.waitFor)(12), (0, pop_1.popIn)(app3Ref(), 2)), (0, core_1.chain)((0, core_1.waitFor)(18), (0, pop_1.popIn)(app4Ref(), 2)), (0, core_1.chain)((0, core_1.waitFor)(24), (0, pop_1.popIn)(app5Ref(), 2)), (0, core_1.chain)((0, core_1.waitFor)(30), (0, pop_1.popIn)(app6Ref(), 2))), (0, core_1.waitFor)(0.5), (0, fade_1.fadeIn)(captionRef(), 0.5), (0, typing_1.typeText)(captionTxt, 'RAG powers real-world apps across customer support, legal, healthcare, finance, enterprise search, and code assistance.', 2.8), (0, core_1.waitFor)(22)));
+});
+//# sourceMappingURL=scene28.js.map
